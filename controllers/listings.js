@@ -79,3 +79,32 @@ module.exports.destroyListings = async(req,res)=> {
     req.flash("success", "Listings is Deleted ❌ ");
     res.redirect("/listings");
 };
+
+module.exports.index = async (req, res) => {
+    const { q } = req.query; // Grabs the search term from the URL
+    
+    if (q) {
+        // If a search term exists, search for it
+        const allListings = await Listing.find({
+            $or: [
+                { title: { $regex: q, $options: 'i' } },    // Search Title (Case-insensitive)
+                { location: { $regex: q, $options: 'i' } }, // Search Location
+                { country: { $regex: q, $options: 'i' } },  // Search Country
+                { category: { $regex: q, $options: 'i' } }  // Search Category (Optional)
+            ]
+        });
+
+        // If nothing found, show a flash message
+        if(allListings.length === 0) {
+            req.flash("error", "No listings found matching your search.");
+            return res.redirect("/listings");
+        }
+
+        res.render("listings/index.ejs", { allListings });
+        
+    } else {
+        // If no search term, show ALL listings (Default behavior)
+        const allListings = await Listing.find({});
+        res.render("listings/index.ejs", { allListings });
+    }
+};

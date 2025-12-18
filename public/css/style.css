@@ -1,103 +1,219 @@
-body{
+/* GLOBAL SETTINGS */
+body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #ffffff; /* Clean white bg */
 }
- 
-.container{
+
+.container {
     flex: 1;
 }
 
-.add-btn  {
-    background-color: #fe424d !important;
-    border: none !important;
-}
-
-/* edit page */
-.edit-btn{
-    background-color: #fe424d !important;
-    border: none !important;
-}
-
-.navbar{
+/* NAVBAR STYLING */
+.navbar {
     height: 5rem;
     background-color: white;
- }
-.fa-compass{
+    border-bottom: 1px solid #ebebeb; /* Subtle separation line */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.fa-compass {
     color: #fe424d;
     font-size: 2rem;
 }
-.nav-link{
+
+.nav-link {
     color: #222222 !important;
+    font-weight: 500;
 }
-.f-info-links a{
+
+/* Search Bar in Navbar */
+.search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+}
+
+.search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+}
+
+.search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 0.9rem;
+}
+
+/* FILTERS SECTION */
+#filters {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping */
+    overflow-x: auto; /* Allows horizontal scrolling */
+    align-items: center;
+    gap: 2rem; /* Spacing between icons */
+    padding: 1rem 0;
+    scrollbar-width: none; /* Firefox: Hide scrollbar */
+}
+
+#filters::-webkit-scrollbar {
+    display: none; /* Chrome/Safari: Hide scrollbar */
+}
+
+.filter {
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0.7;
+    cursor: pointer;
+    flex-shrink: 0; /* Prevents shrinking */
+    transition: opacity 0.2s, border-bottom 0.2s;
+}
+
+.filter:hover {
+    opacity: 1;
+    border-bottom: 2px solid #000; /* Airbnb hover effect */
+}
+
+.filter p {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+/* Tax Toggle Switch */
+.tax-toggle {
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    height: 3rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pushes it to the right */
+    white-space: nowrap;
+}
+
+/* CARDS STYLING */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+    transition: transform 0.2s; /* Subtle zoom effect */
+}
+
+.listing-card:hover {
+    cursor: pointer;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    aspect-ratio: 1/1 !important; /* Forces a Square Shape (Modern Look) */
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 1rem 1rem 1rem 1rem !important;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+    color: inherit; /* Keeps text black */
+}
+
+/* FOOTER */
+.f-info {
+    height: 4rem; /* Slimmer footer */
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #ebebeb;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info-links a {
     text-decoration: none;
     color: #222222;
 }
-.f-info-links a:hover{
+
+.f-info-links a:hover {
     text-decoration: underline;
 }
-.f-info-links , .f-info-socials , .f-info-brand{
+
+/* MAP */
+#map {
+    height: 400px;
     width: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 1rem;
+}
+/* Show Page Specifics */
+.show-img {
+    height: 45vh; /* Standard Airbnb height */
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
 }
 
-.f-info-socials i{
-    font-size: 1.2rem;
-    margin-right: 1rem ;
+
+.search-btn {
+    background-color: #fe424d; /* Airbnb Red */
+    border: none;
+    color: white;
 }
-.f-info{
-    height: 8rem;
-    background-color: #ebebee;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
+.search-btn:hover {
+    background-color: #d93842;
+    color: white;
 }
-/* cards */
-.listing-card{
-    border: none !important;
-    margin-bottom: 2rem;
+/* Card Hover Effect */
+.listing-card {
+    transition: transform 0.2s ease;
 }
-.card-img-top{
+.listing-card:hover {
+    transform: scale(1.02); /* Slight pop out effect */
+    cursor: pointer;
+}
+
+/* Ensure images cover the area without stretching */
+.card-img-top {
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
 }
-.card-body{
-    padding: 0 !important;
-}
-.card-text p{
-    font-weight: 400;
-}
-.listing-link{
-    text-decoration: none;
+
+/* NAVBAR STYLING */
+.navbar {
+    height: 5rem;
+    background-color: white !important;
 }
 
-/* card effect */
-.card-img-overlay{
-    opacity: 0;
-}
-.card-img-overlay:hover{
-    opacity: 0.2;
-    background-color: white;
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
 }
 
-/* show page */
-.show-img{
-    height: 30vh;
-}
-.btns{
-    display: flex;
-}
-/* map */
-
-#map {
-    height: 400px;
-    width: 80vh;
+/* The Search Pill Input */
+.search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 1.5rem; /* Padding for text */
+    font-size: 0.9rem;
+    width: 20rem; /* Fixed width for standard look */
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08); /* Subtle shadow */
+    transition: box-shadow 0.2s;
 }
 
+.search-inp:focus {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Stronger shadow on click */
+    border-color: #ddd;
+}
