@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listing = require("../models/listing.js");
-const MONGO_URL = "mongodb+srv://123mankh_db_user:SArRUFfcXg5Ak6tp@attendacesystemqr.7so70tj.mongodb.net/?appName=AttendaceSystemQR";
+const MONGO_URL = process.env.ATLASDB_URL;
 
 
 main().then(()=> {
